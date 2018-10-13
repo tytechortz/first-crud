@@ -1,14 +1,15 @@
 const express = require('express');
 const app     = express();
+const bodyParser = require('body-parser');
 
-const commieController = require('./controllers/fruits');
+const albumController = require('./controllers/albums');
 
+app.use(bodyParser.urlencoded({extended: false}));
 
-
-app.use('/commies', commieController);
+//app.use('/albums', commieController);
 
 app.get('/', (req, res) => {
-    res.send('This is Commie app')
+    res.send('This is Albums app')
 });
 
 
