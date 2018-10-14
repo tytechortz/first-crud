@@ -19,6 +19,10 @@ app.get('/albums/', (req, res) => {
     res.send(albums);
 });
 
+app.get('/albums/new', (req, res) => {
+    res.render('new.ejs');
+});
+
 
 //show route
 // app.get('/albums/:index', (req, res) => {
@@ -26,7 +30,10 @@ app.get('/albums/', (req, res) => {
 // });
 
 app.get('/albums/:index', (req, res) => {
-         res.render('show.ejs');
+         res.render('show.ejs', { //second param must be an object
+             album: albums[req.params.index] //there will be a variable inside the ejs 
+             // file called album, its value is albums[req.params.index]
+         });
 });
 
 
